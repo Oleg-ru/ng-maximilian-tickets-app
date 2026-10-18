@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { Header } from '../components/header/header';
+import { ServerStatus } from '../components/dashboard/server-status/server-status';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.html',
-  imports: [Header],
+  imports: [Header, ServerStatus],
 })
 export class App {
   dummyTrafficData = [
@@ -39,5 +40,4 @@ export class App {
     },
   ];
   maxTraffic = Math.max(...this.dummyTrafficData.map((data) => data.value));
-  currentStatus = 'online';
 }
