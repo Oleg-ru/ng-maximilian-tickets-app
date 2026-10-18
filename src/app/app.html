@@ -2,16 +2,16 @@
 
 <main>
   <div id="dashboard">
-    <div class="dashboard-item">
+    <app-dachboard-item [image]="{src: 'status.png', alt: 'A signal symbol'}" title="Server Status">
       <app-server-status />
-    </div>
+    </app-dachboard-item>
 
-    <div class="dashboard-item">
+    <app-dachboard-item [image]="{src: 'globe.png', alt: 'A globe'}" title="Traffic">
       <app-traffic />
-    </div>
+    </app-dachboard-item>
 
-    <div class="dashboard-item">
+  <app-dachboard-item [image]="{src: 'list.png', alt: 'A list of items'}" title="Support Tickets">
       <app-tickets />
-    </div>
+  </app-dachboard-item>
   </div>
 </main>
