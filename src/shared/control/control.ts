@@ -16,6 +16,7 @@ export class Control {
   // @HostListener('click') onClick() {
   //   console.log('Click in control');
   // }
+
   label = input.required<string>();
 
   onClick() {
