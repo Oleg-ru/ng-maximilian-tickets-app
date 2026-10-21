@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-server-status',
@@ -6,10 +6,13 @@ import { Component, ChangeDetectorRef } from '@angular/core';
   templateUrl: './server-status.html',
   styleUrl: './server-status.css',
 })
-export class ServerStatus {
+export class ServerStatus implements OnInit {
   currentStatus: 'online' | 'offline' | 'unknown' = 'offline';
 
   constructor(private cdr: ChangeDetectorRef) {
+  }
+
+  ngOnInit() {
     setInterval(() => {
       const rnd = Math.random();
 
@@ -24,6 +27,4 @@ export class ServerStatus {
       this.cdr.markForCheck();
     }, 4000);
   }
-
-
 }
