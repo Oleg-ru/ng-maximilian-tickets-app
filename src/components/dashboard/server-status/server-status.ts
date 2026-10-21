@@ -9,8 +9,7 @@ import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
 export class ServerStatus implements OnInit {
   currentStatus: 'online' | 'offline' | 'unknown' = 'offline';
 
-  constructor(private cdr: ChangeDetectorRef) {
-  }
+  constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     setInterval(() => {
