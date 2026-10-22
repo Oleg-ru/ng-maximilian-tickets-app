@@ -16,7 +16,6 @@ export class NewTicket {
   onSubmit(tittle: string, textarea: string) {
     console.log(tittle);
     console.log(textarea);
-
     this.form().nativeElement.reset();
   }
 }
