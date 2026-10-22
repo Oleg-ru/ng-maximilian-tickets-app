@@ -14,7 +14,6 @@ export class ServerStatus implements OnInit {
   ngOnInit() {
     setInterval(() => {
       const rnd = Math.random();
-
       if (rnd < 0.5) {
         this.currentStatus = 'online';
       } else if (rnd < 0.9) {
