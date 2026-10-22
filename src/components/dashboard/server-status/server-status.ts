@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef, OnInit, OnDestroy, inject, DestroyRef } from '@angular/core';
+import { Component, ChangeDetectorRef, OnInit, inject, DestroyRef } from '@angular/core';
 
 @Component({
   selector: 'app-server-status',
