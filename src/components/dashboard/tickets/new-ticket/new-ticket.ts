@@ -12,7 +12,6 @@ import { FormsModule } from '@angular/forms';
 export class NewTicket {
   // @ViewChild('form') private form?: ElementRef<HTMLFormElement>;
   private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
-
   onSubmit(tittle: string, textarea: string) {
     console.log(tittle);
     console.log(textarea);
