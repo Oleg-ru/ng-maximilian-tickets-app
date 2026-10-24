@@ -1,7 +1,8 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, output, ViewChild } from '@angular/core';
 import { Button } from '../../../../shared/button/button';
 import { Control } from '../../../../shared/control/control';
 import { FormsModule } from '@angular/forms';
+import { NewTicketType } from './new-ticket.model';
 
 @Component({
   selector: 'app-new-ticket',
@@ -12,10 +13,10 @@ import { FormsModule } from '@angular/forms';
 export class NewTicket implements AfterViewInit {
   @ViewChild('form') private form?: ElementRef<HTMLFormElement>;
   //private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
+  add = output<NewTicketType>();
 
-  onSubmit(tittle: string, textarea: string) {
-    console.log(tittle);
-    console.log(textarea);
+  onSubmit(title: string, textarea: string) {
+    this.add.emit({title: title, text: textarea})
     this.form?.nativeElement.reset();
   }
 
