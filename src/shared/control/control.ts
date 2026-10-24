@@ -27,7 +27,7 @@ export class Control {
   control =
     contentChild.required<ElementRef<HTMLInputElement | HTMLTextAreaElement>>('input');
   label = input.required<string>();
-  private el = inject(ElementRef);
+  //private el = inject(ElementRef);
 
   onClick() {
     console.log('Click in control');
