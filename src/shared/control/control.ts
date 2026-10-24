@@ -1,5 +1,6 @@
 import {
   Component,
+  contentChild,
   ElementRef,
   inject,
   input,
@@ -14,7 +15,7 @@ import {
   encapsulation: ViewEncapsulation.None,
   host: {
     class: 'control',
-    '(click)': 'onClick()'
+    '(click)': 'onClick()',
   },
 })
 export class Control {
@@ -22,11 +23,14 @@ export class Control {
   // @HostListener('click') onClick() {
   //   console.log('Click in control');
   // }
+  // @ContentChild("input") private control?: ElementRef<HTMLInputElement | HTMLTextAreaElement>
+  control =
+    contentChild.required<ElementRef<HTMLInputElement | HTMLTextAreaElement>>('input');
   label = input.required<string>();
   private el = inject(ElementRef);
 
   onClick() {
     console.log('Click in control');
-    console.log(this.el);
+    console.log(this.control());
   }
 }
