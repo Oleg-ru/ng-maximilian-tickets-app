@@ -1,4 +1,12 @@
-import { Component, ChangeDetectorRef, OnInit, inject, DestroyRef } from '@angular/core';
+import {
+  Component,
+  ChangeDetectorRef,
+  OnInit,
+  inject,
+  DestroyRef,
+  signal,
+  effect,
+} from '@angular/core';
 
 @Component({
   selector: 'app-server-status',
@@ -7,20 +15,24 @@ import { Component, ChangeDetectorRef, OnInit, inject, DestroyRef } from '@angul
   styleUrl: './server-status.css',
 })
 export class ServerStatus implements OnInit {
-  currentStatus: 'online' | 'offline' | 'unknown' = 'offline';
+  currentStatus = signal<'online' | 'offline' | 'unknown'>('offline');
   private destroyRef = inject(DestroyRef);
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private cdr: ChangeDetectorRef) {
+    effect(() => {
+      console.log(this.currentStatus());
+    });
+  }
 
   ngOnInit() {
     const interval = setInterval(() => {
       const rnd = Math.random();
       if (rnd < 0.5) {
-        this.currentStatus = 'online';
+        this.currentStatus.set('online');
       } else if (rnd < 0.9) {
-        this.currentStatus = 'offline';
+        this.currentStatus.set('offline');
       } else {
-        this.currentStatus = 'unknown';
+        this.currentStatus.set('unknown');
       }
 
       this.cdr.markForCheck();
