@@ -2,7 +2,6 @@ import {
   Component,
   contentChild,
   ElementRef,
-  inject,
   input,
   ViewEncapsulation,
 } from '@angular/core';
