@@ -20,6 +20,7 @@ export class NewTicket implements AfterViewInit {
     this.form?.nativeElement.reset();
   }
 
+
   ngOnInit() {
     console.log('init');
     console.log(this.form?.nativeElement);
