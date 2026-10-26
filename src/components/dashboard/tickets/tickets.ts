@@ -1,24 +1,25 @@
 import { Component } from '@angular/core';
 import { NewTicket } from './new-ticket/new-ticket';
-import { Ticket } from './ticket.model';
+import { TicketType } from './ticket.model';
 import { NewTicketType } from './new-ticket/new-ticket.model';
+import { Ticket } from './ticket/ticket';
 
 @Component({
   selector: 'app-tickets',
-  imports: [NewTicket],
+  imports: [NewTicket, Ticket],
   templateUrl: './tickets.html',
   styleUrl: './tickets.css',
 })
 export class Tickets {
-  tickets: Ticket[] = [];
+  tickets: TicketType[] = [];
 
   onAdd(ticketData: NewTicketType) {
-    const ticket: Ticket = {
+    const ticket: TicketType = {
       id: crypto.randomUUID(),
       status: 'open',
       title: ticketData.title,
       request: ticketData.text,
-    }
-    this.tickets.push(ticket)
-  };
+    };
+    this.tickets.push(ticket);
+  }
 }
