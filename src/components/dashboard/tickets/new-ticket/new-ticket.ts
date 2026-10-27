@@ -15,11 +15,16 @@ export class NewTicket implements AfterViewInit {
   //private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
   add = output<NewTicketType>();
 
-  onSubmit(title: string, textarea: string) {
-    this.add.emit({title: title, text: textarea})
-    this.form?.nativeElement.reset();
-  }
+  titleInput = '';
+  textarea = '';
 
+  onSubmit() {
+    this.add.emit({ title: this.titleInput, text: this.textarea });
+    this.form?.nativeElement.reset();
+
+    this.titleInput = '';
+    this.textarea = '';
+  }
 
   ngOnInit() {
     console.log('init');
