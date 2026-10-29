@@ -21,8 +21,8 @@ export class NewTicket implements AfterViewInit {
   onSubmit() {
     this.add.emit({ title: this.titleInput, text: this.textarea });
     this.form?.nativeElement.reset();
-    this.titleInput = '';
-    this.textarea = '';
+    this.titleInput = "";
+    this.textarea = "";
   }
 
   ngOnInit() {
